@@ -1,0 +1,7 @@
+create table producto (
+	 id serial,
+	codigo integer,
+	nombre varchar(50),
+	fecha_vencimiento date, 
+	categoria varchar(10),
+	precio integer);
