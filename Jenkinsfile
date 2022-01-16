@@ -4,6 +4,7 @@ pipeline{
 
   environment{
     DOCKERHUB_CREDENTIALS = credentials('id-dockerhub')
+    //SONAR_TOKEN = credentials('id-sonarcloud')
   }
 
   stages{
