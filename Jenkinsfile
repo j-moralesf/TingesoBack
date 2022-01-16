@@ -33,7 +33,7 @@ pipeline{
         //sh 'sudo usermod -s -a -G docker $USER'
         //sh 'docker build . -t grupo5back'
         //echo 'Docker Build $DOCKERHUB_CREDENTIAL_USR'
-        sh 'docker build --build-arg JAR_FILE=build/libs/ -t lnkyn/tingesoback .'
+        sh 'docker build -t lnkyn/tingesoback:latest .'
         } 
       }
     }
