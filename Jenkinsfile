@@ -30,7 +30,6 @@ pipeline{
         echo 'Docker Build'
         } 
       }
-    }
 
     stage('Login'){
       steps{
@@ -48,3 +47,4 @@ pipeline{
       }
     }
   }
+}
