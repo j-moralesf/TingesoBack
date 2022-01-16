@@ -1,6 +1,10 @@
 pipeline{
-  agent any
+  agent  {dockerfile true}
   
+  environment{
+    DOCKERHUB_CREDENTIALS = credentials('id-dockerhub')
+  }
+
   stages{
     
     stage('Gradle build'){
@@ -24,12 +28,13 @@ pipeline{
 
     stage('Docker Build'){
       steps{
-        //dir("/var/lib/jenkins/workspace/backendTingeso/TingesoEntrega2"){
+        dir("/var/lib/jenkins/workspace/backendTingeso/TingesoEntrega2"){
         //  sh 'sudo usermod -s -a -G docker $USER'
-        //  sh 'docker build . -t grupo5back'
-        echo 'Docker Build'
+        //sh 'docker build . -t grupo5back'
+        echo 'Docker Build $DOCKERHUB_CREDENTIAL_USR'
         } 
       }
+    }
 
     stage('Login'){
       steps{
