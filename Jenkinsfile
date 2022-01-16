@@ -33,7 +33,7 @@ pipeline{
         //  sh 'sudo usermod -s -a -G docker $USER'
         //sh 'docker build . -t grupo5back'
         //echo 'Docker Build $DOCKERHUB_CREDENTIAL_USR'
-        printenv DOCKERHUB_CREDENTIAL_USR
+        printenv DOCKERHUB_CREDENTIAL
         } 
       }
     }
