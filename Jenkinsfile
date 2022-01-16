@@ -9,17 +9,16 @@ pipeline{
           sh 'chmod +x ./gradlew'
           sh './gradlew build'
         }
-
       }
     }
 
     stage('JUnit'){
       steps{
-		  catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE'){
-		  	dir("/var/lib/jenkins/workspace/backendTingeso/TingesoEntrega2"){
-          sh './gradlew test'
-			}
-		}
+        catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE'){
+          dir("/var/lib/jenkins/workspace/backendTingeso/TingesoEntrega2"){
+            sh './gradlew test'
+          }
+        }
       }  
     }
 
@@ -49,4 +48,3 @@ pipeline{
       }
     }
   }
-}
