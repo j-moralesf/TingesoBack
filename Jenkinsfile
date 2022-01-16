@@ -2,9 +2,9 @@ pipeline{
   //agent  {dockerfile true}
   agent any
 
-  environment{
-    DOCKERHUB_CREDENTIALS = credentials('id-dockerhub')
-  }
+  //environment{
+  //  DOCKERHUB_CREDENTIALS = credentials('id-dockerhub')
+  //}
 
   stages{
     
