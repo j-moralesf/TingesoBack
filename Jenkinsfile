@@ -5,7 +5,7 @@ pipeline{
     
     stage('Gradle build'){
       steps{
-        dir("/var/lib/jenkins/workspace/backendTingeso/TingesoEntrega2"){
+        dir("/var/lib/jenkins/workspace/TingesoBack/TingesoEntrega2"){
           sh 'chmod +x ./gradlew'
           sh './gradlew build'
         }
@@ -15,7 +15,7 @@ pipeline{
     stage('JUnit'){
       steps{
         catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE'){
-          dir("/var/lib/jenkins/workspace/backendTingeso/TingesoEntrega2"){
+          dir("/var/lib/jenkins/workspace/TingesoBack/TingesoEntrega2"){
             sh './gradlew test'
           }
         }
