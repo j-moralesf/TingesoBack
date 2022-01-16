@@ -8,10 +8,6 @@ RUN ./gradlew build
 
 COPY . .
 
-COPY docker-entrypoint.sh /
-
-RUN chmod +x docker-entrypoint.sh
-
-ENTRYPOINT ["bash", "docker-entrypoint.sh"]
+CMD ["java" , "-jar -Dserver.port1818", "/build/libs/TingesoEntrega2-0.0.1-SNAPSHOT.jar"]
 
 EXPOSE 1818

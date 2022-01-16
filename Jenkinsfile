@@ -30,10 +30,10 @@ pipeline{
     stage('Docker Build'){
       steps{
         dir("/var/lib/jenkins/workspace/backendTingeso/TingesoEntrega2"){
-        //  sh 'sudo usermod -s -a -G docker $USER'
+        //sh 'sudo usermod -s -a -G docker $USER'
         //sh 'docker build . -t grupo5back'
         //echo 'Docker Build $DOCKERHUB_CREDENTIAL_USR'
-        printenv DOCKERHUB_CREDENTIAL
+        sh 'docker build --build-arg JAR_FILE=build/libs/ -t lnkyn/tingesoback .'
         } 
       }
     }
