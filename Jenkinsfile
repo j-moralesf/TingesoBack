@@ -30,8 +30,11 @@ pipeline{
 
   stage('SonarQube analysis') {
     steps{
-      withSonarQubeEnv('sonarcloud') { // Will pick the global server connection you have configured
-        sh './gradlew sonarqube'
+      dir("/var/lib/jenkins/workspace/tingeso-BackEnd/TingesoEntrega2"){
+        withSonarQubeEnv('sonarcloud') { // Will pick the global server connection you have configured
+          sh 'chmod +x ./gradlew'
+          sh './gradlew sonarqube'
+        }
       }
     }
   }
