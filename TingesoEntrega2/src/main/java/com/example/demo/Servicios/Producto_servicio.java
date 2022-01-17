@@ -3,6 +3,7 @@ package com.example.demo.Servicios;
 import java.util.List;
 import java.util.Optional;
 
+import com.example.demo.ProductoException;
 import com.example.demo.Modelos.Producto;
 import com.example.demo.Repositorios.Producto_Repositorio;
 
@@ -12,13 +13,15 @@ import org.springframework.stereotype.Service;
 @Service
 public class Producto_servicio {
 
-    @Autowired
     private Producto_Repositorio producto_Repositorio;
-
+    public Producto_servicio(Producto_Repositorio producto_Repositorio)
+    {
+        this.producto_Repositorio = producto_Repositorio;
+    }
     // metodos del crud
 
     public Producto create (Producto producto){
-       return producto_Repositorio.save(producto); 
+       return producto_Repositorio.saveAndFlush(producto); 
     }
 
     public List<Producto> getAllProductos(){
@@ -30,7 +33,12 @@ public class Producto_servicio {
     }  
     
     public Optional<Producto> findById (Long id){
-        return producto_Repositorio.findById(id); 
+        Optional<Producto> optionalProducto = producto_Repositorio.findById(id);
+        if (!optionalProducto.isPresent()) {
+            throw new ProductoException("Producto" + id + " not available");
+        }
+        return optionalProducto;
+
     }
 
 }

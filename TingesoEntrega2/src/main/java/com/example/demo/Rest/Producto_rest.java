@@ -10,11 +10,13 @@ import java.util.Optional;
 
 import javax.servlet.ServletRequest;
 
+import com.example.demo.ProductoException;
 import com.example.demo.Modelos.Producto;
 import com.example.demo.Servicios.Producto_servicio;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
+import org.springframework.boot.autoconfigure.amqp.RabbitProperties.Retry;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.ServletRequestDataBinder;
@@ -38,7 +40,6 @@ public class Producto_rest {
     @PostMapping
     private ResponseEntity<Producto> guardar (@RequestBody Producto producto){
         Producto productoTemporal = producto_servicio.create(producto);
-
         try{
             return ResponseEntity.created(new URI("/api/producto" + productoTemporal.getId())).body(productoTemporal);
         }catch(Exception e){
@@ -61,6 +62,7 @@ public class Producto_rest {
     @GetMapping(value = "{id}")
     private ResponseEntity<Optional<Producto>> listarUnProducto (@PathVariable("id") Long id){
         return ResponseEntity.ok(producto_servicio.findById(id));
+        
     }
         
 }
