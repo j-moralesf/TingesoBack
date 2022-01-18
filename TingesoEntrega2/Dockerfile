@@ -3,11 +3,14 @@ FROM openjdk:11-oracle
 COPY . .
 
 RUN chmod +x ./gradlew
-
 RUN ./gradlew build
 
-COPY . .
+COPY build/libs/TingesoEntrega2-0.0.1-SNAPSHOT.jar TingesoEntrega2-0.0.1-SNAPSHOT.jar
 
-CMD ["java" , "-jar -Dserver.port1818", "/build/libs/TingesoEntrega2-0.0.1-SNAPSHOT.jar"]
+COPY docker-entrypoint.sh /
 
-EXPOSE 1818
+RUN chmod +x docker-entrypoint.sh
+
+ENTRYPOINT ["bash", "docker-entrypoint.sh"]
+
+EXPOSE 30000

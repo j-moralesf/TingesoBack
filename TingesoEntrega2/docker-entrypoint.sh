@@ -1,1 +1,1 @@
-exec java -jar -Dserver.port=1818 /build/libs/TingesoEntrega2-0.0.1-SNAPSHOT.jar
+exec java -jar -Dserver.port=3000 /build/libs/TingesoEntrega2-0.0.1-SNAPSHOT.jar
