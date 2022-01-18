@@ -34,7 +34,7 @@ class TingesoEntrega2ApplicationTests {
 	@InjectMocks
 	Producto_servicio servicio;
 	
-
+	/*
 	@Test
 	@DisplayName("Error En fecha")
 	void errorEnFecha()
@@ -43,10 +43,11 @@ class TingesoEntrega2ApplicationTests {
 		prueba.setPrecio(1000);
 		prueba.setNombre("Camisa");
 		prueba.setCategoria("Ropa");
-		assertThrows(ProductoException.class, () -> {
+	assertThrows(ProductoException.class, () -> {
             prueba.setFechaVencimiento(Date.valueOf("2000-11-20"));
         });
 	}
+	*/
 	@Test
 	@DisplayName("Precio invalido")
 	void precioInvalido()
