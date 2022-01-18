@@ -39,6 +39,7 @@ class TingesoEntrega2ApplicationTests {
 	@DisplayName("Error En fecha")
 	void errorEnFecha()
 	{
+		System.out.println("Ejecutando prueba 1");
 		Producto prueba = new Producto();
 		prueba.setPrecio(1000);
 		prueba.setNombre("Camisa");
@@ -46,6 +47,7 @@ class TingesoEntrega2ApplicationTests {
 		assertThrows(ProductoException.class, () -> {
             prueba.setFechaVencimiento(Date.valueOf("2000-11-20"));
         });
+		System.out.println("Se termino de ejecutar prueba 1 correctamente");
 	}
 	@Test
 	@DisplayName("Precio invalido")
@@ -58,8 +60,8 @@ class TingesoEntrega2ApplicationTests {
 		
 	}
 	@Test
-	@DisplayName("No existe Gato")
-	void noExisteGato()
+	@DisplayName("No existe producto")
+	void noExisteProducto()
 	{
 
 		assertThrows(ProductoException.class, () -> {
