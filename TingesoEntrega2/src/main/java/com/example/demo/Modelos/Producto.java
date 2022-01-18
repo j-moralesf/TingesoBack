@@ -53,7 +53,7 @@ public class Producto {
         return fechaVencimiento;
     }
     public void setFechaVencimiento(Date fechaVencimiento) {
-        /* if(fechaVencimiento.after(java.sql.Time.valueOf(LocalTime.now()))){
+/*         if(fechaVencimiento.after(java.sql.Time.valueOf(LocalTime.now()))){
            throw new ProductoException("Producto Vencido: " + fechaVencimiento);
         } */
         this.fechaVencimiento = fechaVencimiento;
