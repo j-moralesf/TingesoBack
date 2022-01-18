@@ -34,20 +34,17 @@ class TingesoEntrega2ApplicationTests {
 	@InjectMocks
 	Producto_servicio servicio;
 	
-	/*
+	
 	@Test
-	@DisplayName("Error En fecha")
-	void errorEnFecha()
+	@DisplayName("Precio correcto")
+	void precioCorrecto()
 	{
 		Producto prueba = new Producto();
-		prueba.setPrecio(1000);
-		prueba.setNombre("Camisa");
-		prueba.setCategoria("Ropa");
-	assertThrows(ProductoException.class, () -> {
-            prueba.setFechaVencimiento(Date.valueOf("2000-11-20"));
-        });
+		int precio = 1000;
+		prueba.setPrecio(precio);
+		assertEquals(precio, prueba.getPrecio());
 	}
-	*/
+	
 	@Test
 	@DisplayName("Precio invalido")
 	void precioInvalido()
