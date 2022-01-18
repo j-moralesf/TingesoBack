@@ -23,7 +23,7 @@ public class Producto_servicio {
     public Producto create (Producto producto){
        return producto_Repositorio.saveAndFlush(producto); 
     }
-
+    //Martes Enero 2022
     public List<Producto> getAllProductos(){
         return producto_Repositorio.findAll();
     } 
