@@ -30,9 +30,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "http://localhost:32000")
 @RestController
 @RequestMapping("/api/producto/")
+
 public class Producto_rest {
     
     @Autowired
@@ -53,9 +54,10 @@ public class Producto_rest {
         return ResponseEntity.ok(producto_servicio.getAllProductos());
     }
 
-    @DeleteMapping
-    private ResponseEntity<Void> eliminarProducto (@RequestBody Producto producto){
-        producto_servicio.delete(producto);
+
+    @DeleteMapping(value = "{id}")
+    private ResponseEntity<Void> eliminarProducto (@PathVariable("id") Long id){
+        producto_servicio.delete(id);
         return ResponseEntity.ok().build();
     }
 

@@ -28,8 +28,8 @@ public class Producto_servicio {
         return producto_Repositorio.findAll();
     } 
 
-    public void delete (Producto producto){
-        producto_Repositorio.delete(producto); 
+    public void delete (Long producto){
+        producto_Repositorio.deleteById(producto); 
     }  
     
     public Optional<Producto> findById (Long id){

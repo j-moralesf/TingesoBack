@@ -59,8 +59,8 @@ class TingesoEntrega2ApplicationTests {
 		
 	}
 	@Test
-	@DisplayName("No existe Gato")
-	void noExisteGato()
+	@DisplayName("No existe producto")
+	void noExisteProducto()
 	{
 
 		assertThrows(ProductoException.class, () -> {
