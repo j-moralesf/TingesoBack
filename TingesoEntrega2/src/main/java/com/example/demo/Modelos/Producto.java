@@ -20,7 +20,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 public class Producto {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private Integer id;
+    private Long id;
     private Integer codigo;
     private String nombre;
     @DateTimeFormat(pattern = "yyyy-MM-dd")
@@ -28,7 +28,7 @@ public class Producto {
     private String categoria;
     private Integer precio;
     
-    public Integer getId(){
+    public Long getId(){
         return id;
     }
     public Integer getCodigo() {
@@ -53,9 +53,9 @@ public class Producto {
         return fechaVencimiento;
     }
     public void setFechaVencimiento(Date fechaVencimiento) {
-        if(fechaVencimiento.after(java.sql.Time.valueOf(LocalTime.now()))){
+        /* if(fechaVencimiento.after(java.sql.Time.valueOf(LocalTime.now()))){
            throw new ProductoException("Producto Vencido: " + fechaVencimiento);
-        }
+        } */
         this.fechaVencimiento = fechaVencimiento;
     }
     public String getNombre() {
